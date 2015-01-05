@@ -71,6 +71,9 @@ typedef enum sai_fdb_event_t
 
     /* FDB entry flushd */
     SAI_FDB_EVENT_FLUSHED,
+    
+    /* FDB entry moved */
+    SAI_FDB_EVENT_MOVED
 
 } sai_fdb_event_t;
 
