@@ -208,6 +208,8 @@ typedef struct _sai_acl_action_data_t
 } sai_acl_action_data_t;
 
 typedef union {
+    uint32_t u32;
+    int32_t s32;
     sai_uint64_t u64;
     sai_int64_t s64;
     sai_mac_t mac;
