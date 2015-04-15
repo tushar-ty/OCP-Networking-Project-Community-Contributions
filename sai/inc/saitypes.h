@@ -208,13 +208,26 @@ typedef struct _sai_acl_field_data_t
     /*
      * Field match mask
      */
-    uint64_t match_mask[2];
+    union {
+        sai_uint8_t u8;
+        sai_uint16_t u16;
+        sai_uint32_t u32;
+        sai_mac_t mac;
+        sai_ip4_t ip4;
+        sai_ip6_t ip6;
+    } match_mask;
 
     /*
      * Expected AND result using match mask above with packet field value.
      */
-    uint64_t match_data[2];
-
+    union {
+        sai_uint8_t u8;
+        sai_uint16_t u16;
+        sai_uint32_t u32;
+        sai_mac_t mac;
+        sai_ip4_t ip4;
+        sai_ip6_t ip6;
+    } match_data;
 } sai_acl_field_data_t;
 
 /*
@@ -230,8 +243,14 @@ typedef struct _sai_acl_action_data_t
     /*
      * Action parameter
      */
-    uint64_t parameter[2];
-
+    union {
+      sai_uint8_t u8;
+      sai_uint16_t u16;
+      sai_uint32_t u32;
+      sai_mac_t mac;
+      sai_ip4_t ip4;
+      sai_ip6_t ip6;
+    } parameter;
 } sai_acl_action_data_t;
 
 /*
