@@ -251,6 +251,7 @@ typedef struct _sai_acl_action_data_t
       sai_mac_t mac;
       sai_ip4_t ip4;
       sai_ip6_t ip6;
+      sai_object_id_t oid;
     } parameter;
 } sai_acl_action_data_t;
 
