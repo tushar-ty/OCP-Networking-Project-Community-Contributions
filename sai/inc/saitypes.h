@@ -201,10 +201,9 @@ typedef enum _sai_acl_match_mode_t
 typedef struct _sai_acl_field_data_t
 {
     /*
-     * Field match mode
-     */
-    sai_acl_match_mode_t mode;
-
+     * match enable/disable
+     */ 
+    bool enable;
     /*
      * Field match mask
      */
@@ -215,10 +214,10 @@ typedef struct _sai_acl_field_data_t
         sai_mac_t mac;
         sai_ip4_t ip4;
         sai_ip6_t ip6;
-    } match_mask;
+    } mask;
 
     /*
-     * Expected AND result using match mask above with packet field value.
+     * Expected AND result using match mask above with packet field value where applicable.
      */
     union {
         sai_uint8_t u8;
@@ -227,7 +226,9 @@ typedef struct _sai_acl_field_data_t
         sai_mac_t mac;
         sai_ip4_t ip4;
         sai_ip6_t ip6;
-    } match_data;
+        sai_object_id_t oid;
+        sai_object_list_t objlist;
+    } data;
 } sai_acl_field_data_t;
 
 /*
